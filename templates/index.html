@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero d-flex align-items-center justify-content-center text-center">
+  <div class="container">
+
+    <img
+      src="{{ profile.email | gravatar(size=160) }}"
+      alt="{{ profile.name }}"
+      class="rounded-circle avatar mb-4"
+    />
+
+    <h1 class="display-4 fw-bold mb-1">{{ profile.name }}</h1>
+    <p class="lead text-muted mb-4">{{ profile.title }}</p>
+
+    <div class="d-flex justify-content-center gap-2">
+      {% for social in profile.socials %}
+      <a
+        href="{{ social.url }}"
+        class="btn btn-outline-light btn-lg"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="{{ social.name }}"
+      >
+        <i class="bi {{ social.icon }}"></i>
+        {{ social.name }}
+      </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}
