@@ -22,9 +22,20 @@ def gravatar(email, size=200):
     return f"https://www.gravatar.com/avatar/{digest}?s={size}&d=identicon"
 
 
+games = [
+    {
+        "title": "Looping the Rooms",
+        "url": "https://widdershins-bash.itch.io/looping-the-rooms",
+        "tagline": "Can the knight escape his procedural prison?",
+        "tech": "Built with pygame · No AI code used",
+        "image": "https://img.itch.zone/aW1nLzI2MTU5MzYwLnBuZw==/105x83%23/QwqBSd.png",
+    },
+]
+
+
 @app.route("/")
 def home():
-    return render_template("index.html", profile=profile)
+    return render_template("index.html", profile=profile, games=games)
 
 
 if __name__ == "__main__":

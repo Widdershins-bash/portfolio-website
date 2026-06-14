@@ -1,5 +1,10 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px; /* offset for fixed navbar height */
+}
+
 .hero {
-  min-height: calc(100vh - 57px - 53px); /* fill space between navbar and footer */
+  min-height: calc(100vh - 57px - 53px);
 }
 
 .avatar {
@@ -7,4 +12,88 @@
   height: 160px;
   object-fit: cover;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Games section title ── */
+@keyframes shimmer {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.games-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  background: linear-gradient(45deg, #fff 30%, #666 50%, #fff 70%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Game card link wrapper ── */
+.game-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.game-link:hover {
+  color: inherit;
+}
+
+.game-link .card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.game-link:hover .card {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.08);
+}
+
+/* ── Game entry title ── */
+.game-entry-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/* ── Game card placeholder ── */
+.card .ratio > div {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Profile name ── */
+.profile-name {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(45deg, #555 35%, #fff 48%, #fff 52%, #555 65%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── Navbar transparency ── */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(6px);
+}
+
+/* ── Social icons ── */
+.social-icon {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  color: #fff;
+  transform: translateY(-3px);
 }

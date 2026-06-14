@@ -10,24 +10,62 @@
       class="rounded-circle avatar mb-4"
     />
 
-    <h1 class="display-4 fw-bold mb-1">{{ profile.name }}</h1>
+    <h1 class="profile-name display-4 fw-bold mb-1">{{ profile.name }}</h1>
     <p class="lead text-muted mb-4">{{ profile.title }}</p>
 
-    <div class="d-flex justify-content-center gap-2">
+    <div class="d-flex justify-content-center gap-3">
       {% for social in profile.socials %}
       <a
         href="{{ social.url }}"
-        class="btn btn-outline-light btn-lg"
+        class="social-icon"
         target="_blank"
         rel="noopener noreferrer"
         title="{{ social.name }}"
       >
         <i class="bi {{ social.icon }}"></i>
-        {{ social.name }}
       </a>
       {% endfor %}
     </div>
 
   </div>
 </section>
+
+<section id="games" class="py-5">
+  <div class="container">
+    <h2 class="games-title text-center mb-5">Games</h2>
+    <div class="row justify-content-center g-5">
+      {% for game in games %}
+      <div class="col-12 col-md-5">
+
+        <a href="{{ game.url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="game-link">
+
+          <div class="text-center mb-3">
+            <p class="game-entry-title mb-1">{{ game.title }}</p>
+            <p class="text-muted fst-italic mb-1">{{ game.tagline }}</p>
+            <small class="text-secondary">{{ game.tech }}</small>
+          </div>
+
+          <div class="card overflow-hidden">
+            {% if game.image %}
+            <img src="{{ game.image }}" class="card-img-top" alt="{{ game.title }}" />
+            {% else %}
+            <div class="ratio ratio-16x9">
+              <div class="d-flex align-items-center justify-content-center text-muted">
+                Screenshot coming soon
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+        </a>
+
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 {% endblock %}
